@@ -1,0 +1,558 @@
+export const locales = ["en", "ar"] as const;
+export type Locale = (typeof locales)[number];
+
+export function isLocale(value: string): value is Locale {
+  return (locales as readonly string[]).includes(value);
+}
+
+import type { PhotoKey } from "@/lib/photos";
+
+export type IconName =
+  | "stethoscope" | "hospital" | "calendar" | "clipboard" | "eye" | "globe" | "sparkle"
+  | "shield" | "user" | "building" | "pulse" | "monitor" | "chart" | "heart" | "mail"
+  | "plane" | "check" | "users" | "award" | "map";
+
+const en = {
+  meta: {
+    title: "ARKangel Medical Visits London — Experience British Healthcare",
+    description:
+      "Professionally coordinated medical visits to the NHS and London's private healthcare sector for Saudi healthcare professionals and hospital delegations.",
+  },
+  brand: { name: "ARKangel", sub: "Medical Visits London" },
+  nav: {
+    about: "About",
+    programmes: "Programmes",
+    journey: "Journey",
+    gallery: "Gallery",
+    network: "London Network",
+    faq: "FAQ",
+    contact: "Contact",
+    cta: "Book a Visit",
+    menu: "Menu",
+    close: "Close",
+    switchTo: "العربية",
+    switchTitle: "View this website in Arabic",
+    skip: "Skip to content",
+  },
+  hero: {
+    badge: "Experience British Healthcare",
+    titlePre: "Discover",
+    words: ["NHS Excellence", "Clinical Governance", "Patient Safety", "Digital Healthcare"],
+    titlePost: "in London",
+    lead:
+      "Structured, professionally coordinated medical visits for Saudi doctors, nurses, healthcare leaders and hospital delegations — across NHS hospitals, primary care and London's private sector.",
+    cta1: "Book a Medical Visit",
+    cta2: "Arrange a Delegation",
+    scroll: "Scroll to explore",
+    chips: ["5-Day Immersion", "NHS + Private", "Saudi ⇄ London"],
+    cardTitle: "Programme pulse",
+    cardLive: "Live",
+    cardRows: [
+      { label: "Clinical governance", value: 92 },
+      { label: "Patient safety", value: 86 },
+      { label: "Hospital operations", value: 78 },
+      { label: "Digital healthcare", value: 70 },
+    ],
+    cardFoot: "Five focus days · One structured week",
+    float1: "Professionally coordinated",
+    float2: "Host-approved observation",
+  },
+  marquee: [
+    "Hospital Leadership",
+    "Clinical Governance",
+    "Patient Safety",
+    "Nursing Leadership",
+    "Emergency & Acute Care",
+    "Digital Transformation",
+    "Quality Improvement",
+    "Private Healthcare",
+    "Patient Experience",
+    "Primary Care",
+    "Multidisciplinary Teams",
+    "Knowledge Exchange",
+  ],
+  about: {
+    pill: "About ARKangel",
+    title: "Connecting Healthcare Professionals. Sharing International Excellence.",
+    text1:
+      "ARKangel Medical Visits London provides individual healthcare professionals and institutional delegations from Saudi Arabia with structured opportunities to observe, explore and understand the British healthcare environment.",
+    text2:
+      "Our programmes focus on clinical governance, patient safety, hospital operations, multidisciplinary working, primary care, digital healthcare and professional exchange.",
+    points: [
+      "Professionally coordinated programmes",
+      "NHS and London private-sector exposure",
+      "Designed for Saudi professionals and institutions",
+    ],
+    stats: [
+      { value: 5, suffix: "", label: "Day immersion programme" },
+      { value: 2, suffix: "", label: "Visit pathways" },
+      { value: 8, suffix: "+", label: "Delegation focus areas" },
+      { value: 4, suffix: "", label: "Healthcare settings" },
+    ],
+  },
+  services: {
+    pill: "Our Services",
+    title: "Programmes Designed Around Your Goals",
+    lead: "Separate pathways for individual professionals and for Saudi hospitals — because their needs, decisions and programme sizes differ.",
+    more: "Enquire",
+    items: [
+      {
+        icon: "stethoscope" as IconName,
+        tag: "For individuals",
+        title: "Individual Medical Visits",
+        text: "Tailored programmes for Saudi doctors, consultants, specialist physicians and senior nurses seeking professional exposure to British healthcare.",
+        list: [
+          "Individual professional visits",
+          "Clinical observation, subject to host approval",
+          "Professional discussions & knowledge exchange",
+          "Certificates of participation, where applicable",
+        ],
+        form: "individual" as const,
+        photo: "svcIndividual" as PhotoKey,
+      },
+      {
+        icon: "hospital" as IconName,
+        tag: "For institutions",
+        title: "Hospital & Healthcare Delegations",
+        text: "Bespoke visits for Saudi hospitals, healthcare organisations and professional institutions, built around institutional priorities.",
+        list: [
+          "Hospital management & leadership",
+          "Clinical governance & patient safety",
+          "Nursing leadership & workforce development",
+          "Digital transformation & electronic records",
+        ],
+        form: "institutional" as const,
+        photo: "svcDelegations" as PhotoKey,
+      },
+      {
+        icon: "calendar" as IconName,
+        tag: "Flagship",
+        title: "Five-Day London Immersion",
+        text: "A structured week across the UK healthcare framework, NHS hospitals, primary and community care, and London's private hospitals.",
+        list: [
+          "UK framework & regulation",
+          "NHS hospital experience",
+          "Primary & private healthcare",
+          "Personal action plan",
+        ],
+        form: "individual" as const,
+        photo: "svcImmersion" as PhotoKey,
+      },
+    ],
+  },
+  why: {
+    pill: "Why ARKangel",
+    title: "A Higher Standard of International Medical Visits",
+    items: [
+      { icon: "clipboard" as IconName, title: "Professional Coordination", text: "Carefully organised programmes tailored to individual and institutional requirements." },
+      { icon: "eye" as IconName, title: "Meaningful Exposure", text: "Opportunities to observe healthcare delivery and understand operational best practice." },
+      { icon: "globe" as IconName, title: "International Exchange", text: "Professional relationships and knowledge sharing between Saudi and British colleagues." },
+      { icon: "sparkle" as IconName, title: "Personalised Experience", text: "Designed around clinical interests, professional objectives and organisational priorities." },
+    ],
+  },
+  programme: {
+    pill: "Five-Day London Healthcare Immersion",
+    title: "A Structured Week Inside British Healthcare",
+    lead: "From the regulatory framework to the ward, general practice and London's private hospitals — each day builds on the last.",
+    day: "Day",
+    sample: "Sample activities",
+    days: [
+      { photo: "day1" as PhotoKey, title: "UK Healthcare Framework", text: "Understanding the NHS, professional regulation, clinical governance, patient safety and healthcare standards.", items: ["Welcome & programme overview", "The regulatory landscape: GMC and NMC", "Clinical governance & Duty of Candour", "Simulation & resuscitation centre visit"] },
+      { photo: "day2" as PhotoKey, title: "NHS Hospital Experience", text: "Hospital operations, consultant-led ward rounds, nursing leadership, multidisciplinary teams and digital healthcare.", items: ["Trust values & hospital culture", "Ward round & patient-flow observation", "Multidisciplinary team (MDT) meeting", "Electronic records & prescribing safety"] },
+      { photo: "day3" as PhotoKey, title: "Primary & Community Healthcare", text: "General practice, referral pathways, community services, mental health and integrated care.", items: ["GP practice: triage & referral pathways", "Primary–secondary care interface", "Community & mental health services", "Saudi–London clinical case exchange"] },
+      { photo: "day4" as PhotoKey, title: "Private Healthcare Experience", text: "London's independent hospitals, consultant practice management, private patient services and patient experience.", items: ["Private hospital tour & induction", "Consultant practice management", "The private patient experience", "Comparing safety standards (CQC)"] },
+      { photo: "day5" as PhotoKey, title: "Professional Development & Exchange", text: "Professional development, healthcare communication, reflective learning, networking and individual action planning.", items: ["Portfolio, appraisal & revalidation", "Cultural intelligence & communication", "Networking session", "Action plan & certificate of participation"] },
+    ],
+    note: "All activities are subject to programme confirmation, host approval and applicable legal and regulatory requirements.",
+  },
+  journey: {
+    pill: "How It Works",
+    title: "From Your Enquiry to London",
+    lead: "Every programme starts with a conversation about your goals. We then shape a structured visit around your specialty, your institution and your dates.",
+    from: "Saudi Arabia",
+    to: "London",
+    steps: [
+      { icon: "mail" as IconName, title: "Send your enquiry", text: "Share your specialty, objectives and preferred dates." },
+      { icon: "clipboard" as IconName, title: "Programme tailored", text: "We design a programme around your priorities and host approvals." },
+      { icon: "plane" as IconName, title: "Experience London", text: "Observe, learn and connect with British healthcare." },
+    ],
+  },
+  gallery: {
+    pill: "Inside British Healthcare",
+    title: "See Where Your Programme Takes You",
+    lead: "From NHS teaching hospitals and clinical teams to general practice, London's private hospitals and the city itself.",
+    items: [
+      { title: "Clinical teams in action", tag: "NHS hospitals", photo: "gallery1" as PhotoKey },
+      { title: "Nursing leadership", tag: "Workforce", photo: "gallery2" as PhotoKey },
+      { title: "A global healthcare city", tag: "London", photo: "gallery3" as PhotoKey },
+      { title: "Consultant practice", tag: "Private sector", photo: "gallery4" as PhotoKey },
+      { title: "Your week in London", tag: "Five-day immersion", photo: "gallery5" as PhotoKey },
+    ],
+  },
+  network: {
+    pill: "London Healthcare Network",
+    title: "One City. The Full Spectrum of Care.",
+    text: "London offers a diverse healthcare environment, including NHS teaching hospitals, specialist centres, independent hospitals and primary care services.",
+    core: "London",
+    types: [
+      { icon: "hospital" as IconName, title: "NHS Teaching Hospitals" },
+      { icon: "stethoscope" as IconName, title: "Specialist Centres" },
+      { icon: "building" as IconName, title: "Independent Hospitals" },
+      { icon: "users" as IconName, title: "Primary Care Services" },
+    ],
+    hostsTitle: "Potential host organisations may include",
+    hosts: ["NHS Trusts", "Cleveland Clinic London", "HCA Healthcare UK", "Nuffield Health"],
+    note: "Subject to formal arrangements and approval. Named organisations are potential hosts, not confirmed partners.",
+  },
+  audience: {
+    pill: "Who We Welcome",
+    title: "Designed for Saudi Healthcare Professionals",
+    items: [
+      { icon: "stethoscope" as IconName, title: "Doctors & Consultants", text: "Consultants, specialists, registrars and general practitioners." , photo: "audDoctors" as PhotoKey },
+      { icon: "heart" as IconName, title: "Nurses & Nursing Leaders", text: "Senior nurses, nurse managers and clinical nurse specialists." , photo: "audNurses" as PhotoKey },
+      { icon: "award" as IconName, title: "Hospital Leadership", text: "Directors, executive teams, quality and patient-safety leads." , photo: "audLeaders" as PhotoKey },
+    ],
+  },
+  faq: {
+    pill: "FAQ",
+    title: "Common Questions & Answers",
+    items: [
+      { q: "Who are the programmes for?", a: "Saudi doctors, consultants, specialist physicians, senior nurses and healthcare leaders, as well as Saudi hospitals and healthcare organisations sending institutional delegations." },
+      { q: "Do the programmes provide a licence to practise in the UK?", a: "No. The programmes are designed for educational exposure, professional observation and knowledge exchange. They do not provide clinical employment, independent patient contact, professional registration or a licence to practise in the UK." },
+      { q: "Will I be able to observe clinical practice?", a: "Clinical observation opportunities may be available, subject to the host organisation's approval, confidentiality requirements and applicable regulations." },
+      { q: "Which hospitals might we visit?", a: "Potential host organisations may include NHS Trusts, Cleveland Clinic London, HCA Healthcare UK and Nuffield Health, subject to formal arrangements and approval." },
+      { q: "How long is a programme?", a: "Individual visits can be short and focused; the flagship programme is a five-day London healthcare immersion. Institutional programmes are designed around your objectives and preferred duration." },
+      { q: "Will I receive a certificate?", a: "Certificates of participation are provided where applicable, depending on the confirmed programme." },
+    ],
+  },
+  enquiry: {
+    pill: "Plan Your Medical Visit",
+    title: "Tell Us What You Are Looking For",
+    lead: "Whether you are an individual healthcare professional or representing a Saudi hospital, we can discuss a programme suited to your requirements.",
+    tabInd: "Individual",
+    tabInst: "Institution",
+    fields: {
+      fullName: "Full name",
+      designation: "Professional designation",
+      specialty: "Specialty",
+      hospital: "Hospital / organisation",
+      organisation: "Organisation name",
+      lead: "Delegation leader",
+      participants: "Number of participants",
+      email: "Email",
+      phone: "Phone / WhatsApp",
+      dates: "Preferred dates",
+      message: "Areas of interest / objectives",
+    },
+    consent: "I agree that ARKangel Medical Visits London may store and use these details to respond to my enquiry.",
+    submit: "Send Enquiry",
+    sending: "Sending…",
+    required: "Please fill in this field.",
+    invalidEmail: "Please enter a valid email address.",
+    consentRequired: "Please confirm your consent.",
+    successTitle: "Thank you — your enquiry has been received.",
+    successText: "Our team will review your details and contact you shortly.",
+    demoNote: "Demo mode: connect a form service (FORM_ENDPOINT) to receive enquiries by email.",
+    again: "Send another enquiry",
+    error: "Something went wrong. Please try again, or contact us directly.",
+  },
+  cta: {
+    title: "Ready to experience British healthcare?",
+    text: "Tell us your goals — we will design a programme around them.",
+    btn1: "Book a Medical Visit",
+    btn2: "Arrange a Delegation",
+  },
+  footer: {
+    text: "Structured educational and observational medical visits to London for Saudi healthcare professionals and institutions.",
+    explore: "Explore",
+    contact: "Contact",
+    address: "London, United Kingdom",
+    tbc: "To be confirmed",
+    infoTitle: "Important Programme Information",
+    info: "These programmes are designed for educational exposure, professional observation and knowledge exchange. They do not provide clinical employment, independent patient contact, professional registration or a licence to practise in the UK. All hospital access and clinical observation are subject to the host organisation's approval, confidentiality requirements and applicable regulations.",
+    rights: "All rights reserved.",
+    top: "Back to top",
+    whatsapp: "Chat on WhatsApp",
+  },
+  notFound: { title: "Page not found", text: "The page you are looking for may have moved.", home: "Back to homepage" },
+};
+
+export type Dictionary = typeof en;
+
+const ar: Dictionary = {
+  meta: {
+    title: "زيارات أركانجل الطبية – لندن | اكتشف الرعاية الصحية البريطانية",
+    description:
+      "زيارات طبية منظمة باحترافية إلى هيئة الخدمات الصحية الوطنية البريطانية وقطاع الرعاية الصحية الخاص في لندن للكوادر الصحية والوفود المؤسسية السعودية.",
+  },
+  brand: { name: "أركانجل", sub: "الزيارات الطبية – لندن" },
+  nav: {
+    about: "من نحن",
+    programmes: "البرامج",
+    journey: "الرحلة",
+    gallery: "معرض الصور",
+    network: "شبكة لندن",
+    faq: "الأسئلة الشائعة",
+    contact: "تواصل معنا",
+    cta: "احجز زيارة",
+    menu: "القائمة",
+    close: "إغلاق",
+    switchTo: "English",
+    switchTitle: "View this website in English",
+    skip: "انتقل إلى المحتوى",
+  },
+  hero: {
+    badge: "اكتشف تجربة الرعاية الصحية البريطانية",
+    titlePre: "اكتشف",
+    words: ["تميّز هيئة NHS", "الحوكمة السريرية", "سلامة المرضى", "الرعاية الرقمية"],
+    titlePost: "في لندن",
+    lead:
+      "زيارات طبية منظمة ومنسقة باحترافية للأطباء والممرضين والقيادات الصحية والوفود المؤسسية السعودية — في مستشفيات NHS والرعاية الأولية والقطاع الخاص في لندن.",
+    cta1: "احجز زيارة طبية",
+    cta2: "نظّم زيارة لوفد",
+    scroll: "مرّر للاستكشاف",
+    chips: ["برنامج ٥ أيام", "حكومي + خاص", "السعودية ⇄ لندن"],
+    cardTitle: "نبض البرنامج",
+    cardLive: "مباشر",
+    cardRows: [
+      { label: "الحوكمة السريرية", value: 92 },
+      { label: "سلامة المرضى", value: 86 },
+      { label: "إدارة المستشفيات", value: 78 },
+      { label: "الرعاية الصحية الرقمية", value: 70 },
+    ],
+    cardFoot: "خمسة أيام تركيز · أسبوع واحد منظم",
+    float1: "تنسيق مهني متكامل",
+    float2: "ملاحظة بموافقة الجهة المستضيفة",
+  },
+  marquee: [
+    "قيادة المستشفيات",
+    "الحوكمة السريرية",
+    "سلامة المرضى",
+    "قيادة التمريض",
+    "الطوارئ والرعاية الحادة",
+    "التحول الرقمي",
+    "تحسين الجودة",
+    "الرعاية الصحية الخاصة",
+    "تجربة المرضى",
+    "الرعاية الأولية",
+    "الفرق متعددة التخصصات",
+    "تبادل الخبرات",
+  ],
+  about: {
+    pill: "عن أركانجل",
+    title: "ربط الكوادر الصحية وتبادل الخبرات الطبية العالمية.",
+    text1:
+      "تقدم أركانجل للزيارات الطبية في لندن برامج متخصصة للأطباء والممرضين والقيادات الصحية والوفود المؤسسية من المملكة العربية السعودية، تتيح لهم فرصة الاطلاع على بيئة الرعاية الصحية البريطانية وفهم آليات عملها.",
+    text2:
+      "تركز برامجنا على الحوكمة السريرية، وسلامة المرضى، وإدارة المستشفيات، والعمل ضمن الفرق متعددة التخصصات، والرعاية الأولية، والتحول الرقمي وتبادل الخبرات المهنية.",
+    points: [
+      "برامج منظمة ومنسقة باحترافية",
+      "اطلاع على NHS والقطاع الخاص في لندن",
+      "مصممة للكوادر والمؤسسات الصحية السعودية",
+    ],
+    stats: [
+      { value: 5, suffix: "", label: "أيام برنامج الانغماس" },
+      { value: 2, suffix: "", label: "مسارا زيارة" },
+      { value: 8, suffix: "+", label: "مجالات تركيز للوفود" },
+      { value: 4, suffix: "", label: "بيئات رعاية صحية" },
+    ],
+  },
+  services: {
+    pill: "خدماتنا",
+    title: "برامج مصممة حول أهدافك",
+    lead: "مسارات منفصلة للأفراد وللمستشفيات السعودية، لاختلاف الاحتياجات وآليات اتخاذ القرار وأحجام البرامج.",
+    more: "استفسر",
+    items: [
+      {
+        icon: "stethoscope",
+        tag: "للأفراد",
+        title: "الزيارات الطبية الفردية",
+        text: "برامج مصممة للأطباء والاستشاريين والأخصائيين وكبار الممرضين من المملكة العربية السعودية الراغبين في الاطلاع على الرعاية الصحية البريطانية.",
+        list: [
+          "الزيارات المهنية الفردية",
+          "الملاحظة السريرية وفق موافقة الجهة المستضيفة",
+          "اللقاءات المهنية وتبادل الخبرات",
+          "شهادات المشاركة حسب البرنامج المعتمد",
+        ],
+        form: "individual",
+        photo: "svcIndividual",
+      },
+      {
+        icon: "hospital",
+        tag: "للمؤسسات",
+        title: "الوفود الطبية والمؤسسية",
+        text: "زيارات مخصصة للمستشفيات والمؤسسات الصحية والجهات المهنية في المملكة العربية السعودية، تُبنى حول أولويات المؤسسة.",
+        list: [
+          "إدارة المستشفيات والقيادة الصحية",
+          "الحوكمة السريرية وسلامة المرضى",
+          "قيادة التمريض وتطوير الكوادر",
+          "التحول الرقمي والسجلات الإلكترونية",
+        ],
+        form: "institutional",
+        photo: "svcDelegations",
+      },
+      {
+        icon: "calendar",
+        tag: "البرنامج الرئيسي",
+        title: "برنامج لندن – خمسة أيام",
+        text: "أسبوع منظم يشمل منظومة الرعاية الصحية البريطانية، ومستشفيات NHS، والرعاية الأولية والمجتمعية، والمستشفيات الخاصة في لندن.",
+        list: [
+          "الإطار والتنظيم في المملكة المتحدة",
+          "تجربة مستشفيات NHS",
+          "الرعاية الأولية والخاصة",
+          "خطة عمل شخصية",
+        ],
+        form: "individual",
+        photo: "svcImmersion",
+      },
+    ],
+  },
+  why: {
+    pill: "لماذا أركانجل؟",
+    title: "معيار أعلى للزيارات الطبية الدولية",
+    items: [
+      { icon: "clipboard", title: "التنسيق المهني", text: "برامج منظمة بعناية وفق احتياجات الأفراد والمؤسسات." },
+      { icon: "eye", title: "تجربة مهنية هادفة", text: "فرص للاطلاع على آليات تقديم الرعاية الصحية وفهم أفضل الممارسات التشغيلية." },
+      { icon: "globe", title: "التبادل الدولي", text: "تعزيز العلاقات المهنية وتبادل المعرفة بين الكوادر السعودية والبريطانية." },
+      { icon: "sparkle", title: "تجربة مخصصة", text: "برامج مصممة وفق الاهتمامات الطبية والأهداف المهنية وأولويات المؤسسات." },
+    ],
+  },
+  programme: {
+    pill: "برنامج الانغماس في الرعاية الصحية في لندن – خمسة أيام",
+    title: "أسبوع منظم داخل منظومة الرعاية الصحية البريطانية",
+    lead: "من الإطار التنظيمي إلى الأقسام السريرية وطب الأسرة والمستشفيات الخاصة في لندن — كل يوم يبني على ما سبقه.",
+    day: "اليوم",
+    sample: "أنشطة مقترحة",
+    days: [
+      { photo: "day1", title: "منظومة الرعاية الصحية البريطانية", text: "التعرف على نظام NHS، والأنظمة المهنية، والحوكمة السريرية، وسلامة المرضى ومعايير الرعاية الصحية.", items: ["الترحيب والتعريف بالبرنامج", "الإطار التنظيمي: GMC وNMC", "الحوكمة السريرية وواجب الإفصاح", "زيارة مركز المحاكاة والإنعاش"] },
+      { photo: "day2", title: "تجربة المستشفيات البريطانية", text: "إدارة المستشفيات والجولات الطبية بقيادة الاستشاريين، وقيادة التمريض، والفرق متعددة التخصصات والرعاية الرقمية.", items: ["قيم المستشفى وثقافته المؤسسية", "ملاحظة الجولات الطبية وتدفق المرضى", "اجتماع الفريق متعدد التخصصات (MDT)", "السجلات الإلكترونية وسلامة الوصفات"] },
+      { photo: "day3", title: "الرعاية الأولية والمجتمعية", text: "طب الأسرة، ومسارات الإحالة، والخدمات المجتمعية، والصحة النفسية والرعاية المتكاملة.", items: ["عيادة طب أسرة: الفرز ومسارات الإحالة", "العلاقة بين الرعاية الأولية والثانوية", "الخدمات المجتمعية والصحة النفسية", "تبادل الحالات السريرية بين السعودية ولندن"] },
+      { photo: "day4", title: "تجربة الرعاية الصحية الخاصة", text: "المستشفيات الخاصة في لندن، وإدارة عيادات الاستشاريين، وخدمات المرضى في القطاع الخاص وتجربة المريض.", items: ["جولة تعريفية في مستشفى خاص", "إدارة عيادات الاستشاريين", "تجربة المريض في القطاع الخاص", "مقارنة معايير السلامة (CQC)"] },
+      { photo: "day5", title: "التطوير المهني وتبادل الخبرات", text: "التطوير المهني، والتواصل في بيئة الرعاية الصحية، والتعلم التأملي، وبناء العلاقات وخطط التطوير الفردية.", items: ["الملف المهني والتقييم وإعادة الاعتماد", "الذكاء الثقافي ومهارات التواصل", "جلسة تواصل مهني", "خطة العمل وشهادة المشاركة"] },
+    ],
+    note: "تخضع جميع الأنشطة لتأكيد البرنامج وموافقة الجهات المستضيفة والالتزام بالمتطلبات القانونية والتنظيمية المعمول بها.",
+  },
+  journey: {
+    pill: "كيف نعمل",
+    title: "من استفسارك إلى لندن",
+    lead: "يبدأ كل برنامج بحوار حول أهدافك، ثم نصمم زيارة منظمة تناسب تخصصك أو مؤسستك والتواريخ المفضلة لديك.",
+    from: "السعودية",
+    to: "لندن",
+    steps: [
+      { icon: "mail", title: "أرسل استفسارك", text: "شاركنا تخصصك وأهدافك والتواريخ المفضلة." },
+      { icon: "clipboard", title: "تصميم البرنامج", text: "نصمم برنامجاً يتوافق مع أولوياتك وموافقات الجهات المستضيفة." },
+      { icon: "plane", title: "عِش التجربة في لندن", text: "لاحظ وتعلّم وتواصل مع الرعاية الصحية البريطانية." },
+    ],
+  },
+  gallery: {
+    pill: "داخل الرعاية الصحية البريطانية",
+    title: "شاهد أين سيأخذك برنامجك",
+    lead: "من المستشفيات التعليمية والفرق السريرية إلى طب الأسرة والمستشفيات الخاصة في لندن والمدينة نفسها.",
+    items: [
+      { title: "الفرق السريرية أثناء العمل", tag: "مستشفيات NHS", photo: "gallery1" },
+      { title: "قيادة التمريض", tag: "الكوادر الصحية", photo: "gallery2" },
+      { title: "مدينة عالمية للرعاية الصحية", tag: "لندن", photo: "gallery3" },
+      { title: "عيادات الاستشاريين", tag: "القطاع الخاص", photo: "gallery4" },
+      { title: "أسبوعك في لندن", tag: "برنامج الأيام الخمسة", photo: "gallery5" },
+    ],
+  },
+  network: {
+    pill: "شبكة الرعاية الصحية في لندن",
+    title: "مدينة واحدة. كل مستويات الرعاية.",
+    text: "تتميز لندن ببيئة صحية متنوعة تضم المستشفيات التعليمية التابعة لهيئة الخدمات الصحية الوطنية، والمراكز المتخصصة، والمستشفيات المستقلة، وخدمات الرعاية الأولية.",
+    core: "لندن",
+    types: [
+      { icon: "hospital", title: "المستشفيات التعليمية" },
+      { icon: "stethoscope", title: "المراكز المتخصصة" },
+      { icon: "building", title: "المستشفيات المستقلة" },
+      { icon: "users", title: "خدمات الرعاية الأولية" },
+    ],
+    hostsTitle: "قد تشمل الجهات المستضيفة المحتملة",
+    hosts: ["مؤسسات NHS", "كليفلاند كلينك لندن", "HCA Healthcare UK", "نفيلد هيلث"],
+    note: "وفقاً للاتفاقيات والموافقات الرسمية. الجهات المذكورة جهات مستضيفة محتملة وليست شركاء مؤكدين.",
+  },
+  audience: {
+    pill: "الفئات المستهدفة",
+    title: "مصممة للكوادر الصحية السعودية",
+    items: [
+      { icon: "stethoscope", title: "الأطباء والاستشاريون", text: "الاستشاريون والأخصائيون والأطباء المقيمون وأطباء الأسرة." , photo: "audDoctors" },
+      { icon: "heart", title: "التمريض وقياداته", text: "كبار الممرضين ومديرو التمريض والممرضون الإكلينيكيون المتخصصون." , photo: "audNurses" },
+      { icon: "award", title: "قيادات المستشفيات", text: "المديرون والفرق التنفيذية وقيادات الجودة وسلامة المرضى." , photo: "audLeaders" },
+    ],
+  },
+  faq: {
+    pill: "الأسئلة الشائعة",
+    title: "أسئلة وأجوبة شائعة",
+    items: [
+      { q: "لمن صُممت هذه البرامج؟", a: "للأطباء والاستشاريين والأخصائيين وكبار الممرضين والقيادات الصحية من المملكة العربية السعودية، وكذلك للمستشفيات والمؤسسات الصحية السعودية التي ترغب في إرسال وفود مؤسسية." },
+      { q: "هل تمنح البرامج ترخيصاً لمزاولة المهنة في المملكة المتحدة؟", a: "لا. صُممت البرامج لأغراض الاطلاع المهني والملاحظة التعليمية وتبادل الخبرات، ولا تمنح حق العمل السريري أو التعامل المستقل مع المرضى أو التسجيل المهني أو الترخيص لمزاولة المهنة في المملكة المتحدة." },
+      { q: "هل سأتمكن من ملاحظة الممارسة السريرية؟", a: "قد تتوفر فرص للملاحظة السريرية، وفقاً لموافقة الجهة المستضيفة ومتطلبات السرية والأنظمة المعمول بها." },
+      { q: "ما المستشفيات التي قد نزورها؟", a: "قد تشمل الجهات المستضيفة المحتملة مؤسسات NHS وكليفلاند كلينك لندن وHCA Healthcare UK ونفيلد هيلث، وفقاً للاتفاقيات والموافقات الرسمية." },
+      { q: "ما مدة البرنامج؟", a: "يمكن أن تكون الزيارات الفردية قصيرة ومركزة، وبرنامجنا الرئيسي هو برنامج الانغماس لمدة خمسة أيام. أما البرامج المؤسسية فتُصمم وفق أهدافكم والمدة التي تفضلونها." },
+      { q: "هل سأحصل على شهادة؟", a: "تُمنح شهادات المشاركة حسب البرنامج المعتمد." },
+    ],
+  },
+  enquiry: {
+    pill: "خطط لزيارتك الطبية",
+    title: "أخبرنا بما تبحث عنه",
+    lead: "سواء كنت من الكوادر الصحية الراغبة في زيارة فردية أو تمثل مستشفى أو مؤسسة صحية سعودية، يسعدنا مناقشة البرنامج المناسب لاحتياجاتك.",
+    tabInd: "فردي",
+    tabInst: "مؤسسة",
+    fields: {
+      fullName: "الاسم الكامل",
+      designation: "المسمى المهني",
+      specialty: "التخصص",
+      hospital: "المستشفى / الجهة",
+      organisation: "اسم الجهة",
+      lead: "رئيس الوفد",
+      participants: "عدد المشاركين",
+      email: "البريد الإلكتروني",
+      phone: "الهاتف / واتساب",
+      dates: "التواريخ المفضلة",
+      message: "مجالات الاهتمام / الأهداف",
+    },
+    consent: "أوافق على أن تحتفظ زيارات أركانجل الطبية – لندن بهذه البيانات وتستخدمها للرد على استفساري.",
+    submit: "إرسال الاستفسار",
+    sending: "جارٍ الإرسال…",
+    required: "يرجى تعبئة هذا الحقل.",
+    invalidEmail: "يرجى إدخال بريد إلكتروني صحيح.",
+    consentRequired: "يرجى تأكيد موافقتك.",
+    successTitle: "شكراً لك — تم استلام استفسارك.",
+    successText: "سيقوم فريقنا بمراجعة بياناتك والتواصل معك قريباً.",
+    demoNote: "وضع العرض التجريبي: اربط خدمة نماذج (FORM_ENDPOINT) لاستلام الاستفسارات عبر البريد.",
+    again: "إرسال استفسار آخر",
+    error: "حدث خطأ ما. يرجى المحاولة مرة أخرى أو التواصل معنا مباشرة.",
+  },
+  cta: {
+    title: "هل أنت مستعد لتجربة الرعاية الصحية البريطانية؟",
+    text: "أخبرنا بأهدافك — وسنصمم برنامجاً يناسبها.",
+    btn1: "احجز زيارة طبية",
+    btn2: "نظّم زيارة لوفد",
+  },
+  footer: {
+    text: "زيارات طبية تعليمية ومهنية منظمة إلى لندن للكوادر والمؤسسات الصحية السعودية.",
+    explore: "استكشف",
+    contact: "تواصل",
+    address: "لندن، المملكة المتحدة",
+    tbc: "سيتم التأكيد لاحقاً",
+    infoTitle: "معلومات مهمة حول البرامج",
+    info: "صُممت هذه البرامج لأغراض الاطلاع المهني والملاحظة التعليمية وتبادل الخبرات. ولا تمنح حق العمل السريري أو التعامل المستقل مع المرضى أو التسجيل المهني أو الترخيص لمزاولة المهنة في المملكة المتحدة. وتخضع جميع الزيارات والملاحظات السريرية لموافقة الجهات المستضيفة ومتطلبات السرية والأنظمة المعمول بها.",
+    rights: "جميع الحقوق محفوظة.",
+    top: "العودة إلى الأعلى",
+    whatsapp: "تواصل عبر واتساب",
+  },
+  notFound: { title: "الصفحة غير موجودة", text: "ربما تم نقل الصفحة التي تبحث عنها.", home: "العودة إلى الرئيسية" },
+};
+
+const dictionaries: Record<Locale, Dictionary> = { en, ar };
+
+export function getDictionary(locale: Locale): Dictionary {
+  return dictionaries[locale];
+}
+
+/** Convert Western digits to Arabic-Indic digits for Arabic. */
+export function localizeDigits(value: string | number, locale: Locale): string {
+  const s = String(value);
+  if (locale !== "ar") return s;
+  return s.replace(/\d/g, (d) => "٠١٢٣٤٥٦٧٨٩"[Number(d)]);
+}
